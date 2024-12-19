@@ -30,15 +30,17 @@
 
         <p class="description">West Sumbawa Regency is a Regency of the Indonesian Province of West Nusa Tenggara. It is located on the island of Sumbawa and has an area of 1,742.27 km².</p>
     </div>
-</section>
-
-<section class="gallery">
     <div class="gallery-grid">
-        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-2.png'])}" alt="Event Image" class="card-img-top"/>
-        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-3.png'])}" alt="Event Image" class="card-img-top"/>
-        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-4.png'])}" alt="Event Image" class="card-img-top"/>
-        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-5.png'])}" alt="Event Image" class="card-img-top"/>
-        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-6.png'])}" alt="Event Image" class="card-img-top"/>
+        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-2.png'])}"
+             alt="Event Image" class="card-img-top"/>
+        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-3.png'])}"
+             alt="Event Image" class="card-img-top"/>
+        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-4.png'])}"
+             alt="Event Image" class="card-img-top"/>
+        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-5.png'])}"
+             alt="Event Image" class="card-img-top"/>
+        <img src="${createLink(controller: 'image', action: 'showImage', params: [fileName: 'landing-6.png'])}"
+             alt="Event Image" class="card-img-top"/>
     </div>
     <button class="see-more-btn">Lihat Semua</button>
 </section>
