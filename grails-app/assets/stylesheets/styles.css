@@ -1,14 +1,22 @@
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
     background-color: #121212;
     color: #ffffff;
     line-height: 1.6;
+}
+
+header{
+    background-image: url('https://i.misteraladin.com/blog/2021/11/02134100/marcella-oscar-uRSk8pT0Elg-unsplash-scaled.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
 }
 
 .navbar {
@@ -16,7 +24,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0);
     color: #fff;
 }
 
@@ -34,11 +42,17 @@ body {
 .navbar .nav-links a {
     text-decoration: none;
     color: #fff;
-    font-weight: bold;
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: white;
+    font-weight: bolder;
+    text-shadow: 0 0 10px #587DFF;
 }
 
 .register-btn {
-    background-color: #4CAF50;
+    background-color: #587DFF;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -48,12 +62,12 @@ body {
 }
 
 .register-btn:hover {
-    background-color: #45a049;
+    background-color: black;
 }
 
 .hero {
-    height: 100vh;
-    background-image: url('https://i.misteraladin.com/blog/2021/11/02134100/marcella-oscar-uRSk8pT0Elg-unsplash-scaled.jpg'); /* Placeholder */
+    position: relative;
+    height: 70vh;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -63,34 +77,81 @@ body {
     text-align: center;
 }
 
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to bottom, transparent, #121212);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 600px;
+}
+
 .hero h1 {
-    font-size: 192px;
+    font-size: 96px;
     font-weight: bold;
     line-height: 90%;
 }
 
-.scroll-indicator {
+.hero .scroll-indicator {
     font-size: 1.5rem;
     margin: 10px 0;
 }
 
-.hero p {
+.transition {
+    position: relative;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100px; /* Tinggi transisi */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000);
+}
+
+.hero-banner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.subTitle {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 90%;
+}
+
+.description {
     letter-spacing: 0;
-    margin-top: 10px;
-    font-size: 1.2rem;
-    max-width: 600px;
+    margin-top: 20px;
+    line-height: 120%;
+    font-size: 20px;
 }
 
 .gallery {
     padding: 40px 20px;
     text-align: center;
-    background-color: #1c1c1c;
+    background-color: black;
 }
 
 .gallery-grid {
+    margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-areas:
+        "small1 big small2"
+        "small3 big small4";
     gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .gallery-grid img {
@@ -101,10 +162,32 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.gallery-grid img:nth-child(1) {
+    grid-area: small1;
+}
+
+.gallery-grid img:nth-child(2) {
+    grid-area: small2;
+}
+
+.gallery-grid img:nth-child(3) {
+    grid-area: big;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-grid img:nth-child(4) {
+    grid-area: small3;
+}
+
+.gallery-grid img:nth-child(5) {
+    grid-area: small4;
+}
+
 .see-more-btn {
     margin-top: 20px;
     padding: 10px 30px;
-    background-color: #4CAF50;
+    background-color: #587DFF;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -113,13 +196,190 @@ body {
 }
 
 .see-more-btn:hover {
-    background-color: #45a049;
+    background-color: white;
+    color: black;
 }
 
-footer {
+.tolerance-section {
+    padding: 40px 20px;
+    background-color: black;
+    color: #fff;
     text-align: center;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.highlight-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: black;
+    border-radius: 24px;
+    overflow: hidden;
+    height: 250px;
     padding: 20px;
+}
+
+.highlight-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.highlight-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    text-align: left;
+}
+
+.highlight-content p {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.highlight-index {
+    color: #87CEFA; /* Highlight warna biru */
+    font-style: italic;
+}
+
+.highlight-btn {
+    padding: 8px 20px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.highlight-btn:hover {
+    background-color: #ffffff;
+    color: #000;
+    transition: 0.3s;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.info-card h3 {
+    font-size: 36px;
+}
+
+.info-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-us, .contact-us {
+    padding: 40px 20px;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 16px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.member-card {
+    text-align: center;
+}
+
+.member-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12%;
+    margin-bottom: 10px;
+}
+
+.contact-us {
+    background-image: url("https://www.climatepolicyinitiative.org/wp-content/uploads/2022/06/denissa-devy-fU2Mus9qmN8-unsplash-scaled.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    height: 40vh;
+}
+
+.contact-us .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-us .social-icons a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.contact-us .social-icons a:hover {
+    color: #87CEFA;
+}
+
+.footer {
     background-color: #000;
     color: #fff;
-    font-size: 0.9rem;
+    padding: 20px;
+    text-align: center;
 }
+
+.footer-content {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer-icons a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer-icons a:hover {
+    color: #87CEFA;
+}
+
